@@ -49,7 +49,7 @@ public class ConwaysLife {
     public static void main(String[] args) {
         try {
 
-            Font font = new Font("NanumGothic", Font.PLAIN, 15);
+            Font font = new Font("NanumGothic", Font.PLAIN, 14);
             AWTTerminalFontConfiguration chess = AWTTerminalFontConfiguration.newInstance(font);
 
 
@@ -96,12 +96,6 @@ public class ConwaysLife {
                 }
             });
 
-            LifeSimulator simulation = new LifeSimulator(size.getColumns() * 2, size.getRows());
-            simulation.insertPattern(new PatternGlider(), 20, 10);
-            simulation.insertPattern(new PatternAcorn(), 10, 0);
-            simulation.insertPattern(new PatternBlock(), 60, 5);
-            simulation.insertPattern(new PatternBlinker(), 40, 0);
-            terminal.setCursorPosition(105,35);
 
 
 
@@ -160,10 +154,10 @@ public class ConwaysLife {
 
             for (int i = 0; i < 100; i++) {
                 checkerBoard(graphics);
-                render(simulation,screen, graphics);
+
                 Thread.yield();                         // Let the JVM have some time to update other things
                 Thread.sleep(300);                // Sleep for a bit to make for a nicer paced animation
-                simulation.update();                    // Tell the simulation to update
+                                  // Tell the simulation to update
             }
 
             //screen.stopScreen();
@@ -171,23 +165,7 @@ public class ConwaysLife {
             System.out.println("Something bad happened: " + ex.getMessage());
         }
     }
-    public static void render(LifeSimulator simulation, Screen screen, TextGraphics graphics)
-    {
-        for(int i = 0; i < simulation.getSizeX(); i++){
-            for(int z = 0; z < simulation.getSizeY(); z++){
-                if (simulation.getCell(i,z)){
-                    graphics.setCharacter(i, z, '☼');
-                }
-                else {graphics.setCharacter(i, z, ' '); }
-            }
-        }
 
-        try {
-            screen.refresh();
-        } catch (Exception ex) {
-            System.out.println("Something bad happened: " + ex.getMessage());
-        }
-    }
     public String getInput(Terminal terminal, TextGraphics graphics, Screen screen, int[][] map, ArrayList<String> text, ArrayList<String> border, int turn, int offset, int list, int skip,
                            boolean mainMenu,boolean jump, int[][] jumpLocations, int type)  {
         try {

@@ -79,11 +79,11 @@ public class AWTTerminalFontConfiguration {
         int fontSize = getFontSize();
         return Collections.unmodifiableList(Arrays.asList(
                 //new Font("FreeMono", Font.PLAIN, fontSize),
-                //new Font("Courier New", Font.PLAIN, 15), //Monospaced can look pretty bad on Windows, so let's override it
+                //new Font("Courier New", Font.PLAIN, 20), //Monospaced can look pretty bad on Windows, so let's override it
 
                 //new Font("Monospaced", Font.PLAIN, fontSize),
                 //new Font("Monospaced", Font.PLAIN, fontSize),
-                new Font("WenQuanYi Zen Hei", Font.PLAIN, 24),
+                new Font("WenQuanYi Zen Hei", Font.PLAIN, 16),
                 new Font("Monospaced", Font.PLAIN, fontSize)
         ));
 
