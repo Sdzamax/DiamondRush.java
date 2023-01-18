@@ -1165,8 +1165,8 @@ public class DiamondRush {
             this.display.emptyText(textGraphics);
             int[] nodeTracker = new int[36];
             emptyText();
-            System.out.println("Choose a Road to Continue....");
-            stringConcactinate("Choose a Road to Continue....");
+            stringConcactinate("Choose a Road ");
+            stringConcactinate("to Continue....");
             int list= 1;
             for (int i = 0; i < 36; i++)
             {
@@ -1186,7 +1186,7 @@ public class DiamondRush {
             if (node > list){stringConcactinate("Invalid Answer"); ContinueRoad();}
             else {
                 emptyText();
-                int list2 = 1;
+                int list2 = 0;
                 int[] roadTracker = new int[4];
                 stringConcactinate("Do you want to build... ");
                 if (this.playerTwoNodeTracker[nodeTracker[node]][0] !=3){list2++; stringConcactinate("1) Right"); roadTracker[list2] = 1;}
@@ -1194,7 +1194,7 @@ public class DiamondRush {
                 if (this.playerTwoNodeTracker[nodeTracker[node]][0] !=1){list2++; stringConcactinate("3) Left"); roadTracker[list2] = 3;}
                 if (this.playerTwoNodeTracker[nodeTracker[node]][0] !=2){list2++; stringConcactinate("4) Up"); roadTracker[list2] = 4;}
                 stringConcactinate("0) Back");
-                int direction = trycatch(false,1,list2,0, false, null, 0);
+                int direction = trycatch(false,1,list2+1,0, false, null, 0);
                 if(direction > 4){stringConcactinate("Invalid Number"); ContinueRoad(); }
                 if (direction == 0){return;}
                 else {
